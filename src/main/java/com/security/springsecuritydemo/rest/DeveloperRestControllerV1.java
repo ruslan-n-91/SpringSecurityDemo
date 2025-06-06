@@ -21,14 +21,13 @@ public class DeveloperRestControllerV1 {
 
     @GetMapping
     public List<Developer> getAll() {
-
         return DEVELOPERS;
     }
 
     @GetMapping("/{id}")
     public Developer getById(@PathVariable(value = "id") Long id) {
-
-        return DEVELOPERS.stream().filter(developer -> developer.getId().equals(id))
+        return DEVELOPERS.stream()
+                .filter(developer -> developer.getId().equals(id))
                 .findFirst()
                 .orElse(null);
     }
